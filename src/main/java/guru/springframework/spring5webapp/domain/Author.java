@@ -2,9 +2,11 @@ package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Created by jt on 12/22/19.
+ */
 @Entity
 public class Author {
 
@@ -21,9 +23,9 @@ public class Author {
     public Author() {
     }
 
-    public Author(String lastName, String firstName) {
-        this.lastName = lastName;
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Long getId() {
@@ -69,10 +71,12 @@ public class Author {
     }
 
     @Override
-    public final boolean equals(Object o) {
-        if (this ==o) return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Author author = (Author) o;
+
         return id != null ? id.equals(author.id) : author.id == null;
     }
 
